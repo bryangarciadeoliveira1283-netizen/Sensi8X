@@ -1,6 +1,52 @@
-plugins { id 'com.android.application' }
+
+plugins {
+    id 'com.android.application' version '8.7.3'
+}
+
 android {
     namespace 'com.sensi8x.app'
-    compileSdk 34
-    defaultConfig { applicationId 'com.sensi8x.app'; minSdk 23; targetSdk 28; versionCode 1; versionName '1.0' }
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.sensi8x.app'
+        minSdk 26
+        targetSdk 28
+        versionCode 1
+        versionName '1.0'
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['.']
+            java.include 'MainActivity.java'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+tasks.register('sensi8xInfo') {
+    doLast {
+        println 'Sensi 8X - Android APK'
+        println 'Projeto configurado para GitHub Actions'
+    }
 }
