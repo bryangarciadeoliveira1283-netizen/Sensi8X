@@ -18,8 +18,9 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['.']
-            java.include 'MainActivity.java'
+            java.setSrcDirs(['src/main/java'])
+            res.setSrcDirs(['src/main/res'])
+            assets.setSrcDirs(['src/main/assets'])
         }
     }
 
@@ -46,7 +47,7 @@ android {
 
 tasks.register('sensi8xInfo') {
     doLast {
-        println 'Sensi 8X - Android APK'
-        println 'Projeto configurado para GitHub Actions'
+        println 'Sensi 8X - Galaxy A17'
+        println 'Projeto Android configurado'
     }
 }
